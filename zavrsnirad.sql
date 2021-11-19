@@ -32,4 +32,23 @@ create table posao(
     placa decimal(18,2) not null
 );
 
+create table djelatnik_usluga(
+    djelatnik int not null,
+    usluga int not null
+);
+
+create table usluga(
+    šifra int not null primary key auto_increment,
+    naziv varchar(50) not null,
+    cijena varchar(50) not null
+);
+
+create table korisnik(
+    šifra int not null primary key auto_increment,
+    ime varchar(50) not null,
+    prezime varchar(50) not null,
+    oib char(11) not null,
+    datumrodenja date,
+    usluga int not null
+);
 
