@@ -15,40 +15,35 @@ create table djelatnik(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     prezime varchar(50) not null,
-    email varchar(50)
-);
-
-create table djelatnik_usluga(
-    djelatnik int not null,
-    usluga int not null
+    uloga varchar(50),
+    email varchar(50),
+    placa decimal(18,2)
 );
 
 create table usluga(
     sifra int not null primary key auto_increment,
+    djelatnik int not null,
     naziv varchar(50) not null,
-    cijenaponocenju varchar(50) not null
+    cijena varchar(50)
 );
 
 create table korisnik(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     prezime varchar(50) not null,
-    oib char(11) not null,
-    datumrodenja date
+    oib char(11),
+    datumrodenja date,
+    usluga int not null
 );
 
-create table korisnik_usluga(
-    korisnik int not null,
-    usluga int not null,
-    datumpocetka datetime not null,
-    datumkraja datetime,
-    ukupnacijena decimal(18,2)
+create table posjeta_usluga(
+    posjeta int not null,
+    usluga int not null
 );
 
+alter table usluga add foreign key(djelatnik) references djelatnik(sifra);
 
-alter table djelatnik_usluga add foreign key(djelatnik) references djelatnik(sifra);
-alter table djelatnik_usluga add foreign key(usluga) references usluga(sifra);
+alter table korisnik add foreign key(usluga) references usluga(sifra);
 
-alter table korisnik_usluga add foreign key(korisnik) references korisnik(sifra);
-alter table korisnik_usluga add foreign key(usluga) references usluga(sifra);
-
+alter table posjeta_usluga add foreign key(posjeta) references posjeta(sifra);
+alter table posjeta_usluga add foreign key(usluga) references usluga(sifra);
