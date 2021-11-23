@@ -2,6 +2,15 @@ drop database if exists recepcija;
 create database recepcija character set utf8;
 use recepcija;
 
+create table posjeta(
+    sifra int not null primary key auto_increment,
+    datumprijave date not null,
+    datumodjave date not null,
+    brojsoba int not null,
+    brojodraslih int not null,
+    brojdjece int not null
+);
+
 create table djelatnik(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
