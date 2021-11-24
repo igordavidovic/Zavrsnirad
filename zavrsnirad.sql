@@ -32,8 +32,7 @@ create table korisnik(
     ime varchar(50) not null,
     prezime varchar(50) not null,
     oib char(11),
-    datumrodenja date,
-    usluga int not null
+    datumrodenja date
 );
 
 create table posjeta_usluga(
@@ -41,9 +40,15 @@ create table posjeta_usluga(
     usluga int not null
 );
 
+create table korisnik_usluga(
+    korisnik int not null,
+    usluga int not null
+);
+
 alter table usluga add foreign key(djelatnik) references djelatnik(sifra);
 
-alter table korisnik add foreign key(usluga) references usluga(sifra);
+alter table korisnik_usluga add foreign key(usluga) references usluga(sifra);
+alter table korisnik_usluga add foreign key(korisnik) references korisnik(sifra);
 
 alter table posjeta_usluga add foreign key(posjeta) references posjeta(sifra);
 alter table posjeta_usluga add foreign key(usluga) references usluga(sifra);
