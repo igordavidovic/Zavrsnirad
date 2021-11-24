@@ -23,7 +23,7 @@ create table djelatnik(
 create table usluga(
     sifra int not null primary key auto_increment,
     djelatnik int not null,
-    naziv varchar(50) not null,
+    naziv varchar(100) not null,
     cijena varchar(50)
 );
 
@@ -72,3 +72,43 @@ insert into djelatnik(sifra,ime,prezime,uloga,email,placa) values
 (null,'Jolanda','Lončar','Pomoćna recepecionarka','jolandaloncar@gmail.com',5000.00),
 (null,'Antonio','Kolarić','Recepcioinar','antoniokolaric@gmail.com',5800.00),
 (null,'Dubravko','Horvat','Noćni recepcionar',null,null);
+
+insert into posjeta(sifra,datumprijave,datumodjave,brojsoba,brojodraslih,brojdjece) values
+(null,"2021-11-24","2021-11-29",1,2,0),
+(null,"2021-11-28","2021-12-03",1,2,0),
+(null,"2021-11-29","2021-12-04",1,2,1),
+(null,"2021-11-29","2021-12-03",1,2,0),
+(null,"2021-11-30","2021-12-04",2,2,2),
+(null,"2021-11-30","2021-12-04",1,2,0),
+(null,"2021-11-30","2021-12-07",1,2,0),
+(null,"2021-12-01","2021-12-06",2,4,0),
+(null,"2021-12-01","2021-12-05",1,2,0),
+(null,"2021-12-02","2021-12-05",1,2,0);
+
+insert into usluga(sifra,djelatnik,naziv,cijena) values
+(null,3,'Pet noćenja sa doručkom u jednokrevetnoj sobi',2500.00),
+(null,4,'Pet noćenja sa polupansionom u dvokrevetnoj sobi',2200.00),
+(null,3,'Pet noćenja sa punim pansionom u dvokrevetnoj sobi',2300.00),
+(null,4,'Četiri noćenja sa doručkom u dvokrevetnoj sobi',1800.00),
+(null,5,'Četiri noćenja sa polupansionom u jednokrevetnoj sobi',1950.00),
+(null,5,'Četiri noćenja sa polupansionom u dvokrevetnoj sobi',1750.00),
+(null,5,'Četiri noćenja sa punim pansionom u jednokrevetnoj sobi',1900.00),
+(null,7,'Sedam noćenja sa polupansionom u jednokrevetnoj sobi',3200.00),
+(null,7,'Pet noćenja sa doručkom u jednokrevetnoj sobi',2400.00),
+(null,7,'Pet noćenja sa doručkom u jednokrevetnoj sobi',2500.00),
+(null,6,'Pet noćenja sa polupansionom u dvokrevetnoj sobi',2300.00),
+(null,8,'Četiri noćenja sa punim pansionom u jednokrevetnoj sobi',1950.00);
+
+insert into posjeta_usluga(posjeta,usluga) values
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5),
+(5,6),
+(6,7),
+(7,8),
+(8,9),
+(8,10),
+(9,11),
+(10,12);
