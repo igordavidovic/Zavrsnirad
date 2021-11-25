@@ -4,6 +4,7 @@ use recepcija;
 
 create table posjeta(
     sifra int not null primary key auto_increment,
+    korisnik int not null,
     datumprijave date not null,
     datumodjave date not null,
     brojsoba int not null,
@@ -31,6 +32,7 @@ create table korisnik(
     sifra int not null primary key auto_increment,
     ime varchar(50) not null,
     prezime varchar(50) not null,
+    email varchar(50),
     oib char(11),
     datumrodenja date
 );
@@ -40,6 +42,7 @@ create table posjeta_usluga(
     usluga int not null
 );
 
+alter table posjeta add foreign key(korisnik) references korisnik(sifra);
 
 alter table usluga add foreign key(djelatnik) references djelatnik(sifra);
 
