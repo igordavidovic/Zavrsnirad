@@ -67,11 +67,11 @@ insert into djelatnik(sifra,ime,prezime,uloga,email,placa) values
 (null,'Dubravko','Horvat','Noćni recepcionar',null,null);
 
 insert into posjeta(sifra,korisnik,datumprijave,datumodjave,brojsoba,brojodraslih,brojdjece) values
-(null,1,"2021-11-24","2021-11-29",1,2,0),
-(null,2,"2021-11-28","2021-12-03",1,2,0),
-(null,3,"2021-11-29","2021-12-04",1,2,1),
-(null,4,"2021-11-29","2021-12-03",1,2,0),
-(null,5,"2021-11-30","2021-12-04",2,2,2);
+(null,1,'2021-11-24','2021-11-29',1,2,0),
+(null,2,'2021-11-28','2021-12-03',1,2,0),
+(null,3,'2021-11-29','2021-12-04',1,2,1),
+(null,4,'2021-11-29','2021-12-03',1,2,0),
+(null,5,'2021-11-30','2021-12-04',2,2,2);
 
 insert into usluga(sifra,djelatnik,naziv,cijena) values
 (null,3,'Pet noćenja sa doručkom u jednokrevetnoj sobi',2500.00),
